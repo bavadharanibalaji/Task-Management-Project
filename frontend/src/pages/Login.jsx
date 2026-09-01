@@ -43,8 +43,8 @@ const Login = () => {
         <AuthSidePanel />
 
         <form onSubmit={handleSubmit} className="flex-1 p-8 md:p-10">
-          <h1 className="text-2xl font-display font-semibold mb-1">Welcome back 👋</h1>
-          <p className="text-text-muted text-sm mb-6">Login to manage your tasks</p>
+          <h1 className="text-2xl font-display font-semibold mb-4">Welcome back 👋</h1>
+        
 
           {error && (
             <p className="bg-danger/10 text-danger text-sm rounded-md px-3 py-2 mb-4">

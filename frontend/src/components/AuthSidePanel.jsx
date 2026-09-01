@@ -20,18 +20,15 @@ const AuthSidePanel = () => {
         <div className="h-9 w-9 rounded-lg bg-primary flex items-center justify-center">
           <ClipboardCheck size={18} />
         </div>
-        <span className="font-display font-semibold text-lg">TaskFlow</span>
+        <span className="font-display font-semibold text-m">TaskFlow</span>
       </div>
 
       <div className="relative">
         <h2 className="font-display text-2xl font-semibold mb-2 leading-snug">
           Manage your team's<br />work in one place
         </h2>
-        <p className="text-white/60 text-sm mb-8">
-          Assign tasks, track progress, and stay in sync with your team.
-        </p>
-
-        <div className="bg-white/10 backdrop-blur rounded-xl p-4 space-y-3 border border-white/10">
+        
+        <div className="backdrop-blur rounded-xl p-4 space-y-3 border border-white/10">
           <div className="flex items-center gap-3">
             <div className="h-8 w-8 rounded-md bg-card1 flex items-center justify-center">
               <ListTodo size={16} />
@@ -62,7 +59,7 @@ const AuthSidePanel = () => {
         </div>
       </div>
 
-      <p className="relative text-white/40 text-xs">© 2026 TaskFlow</p>
+      
     </div>
   );
 };

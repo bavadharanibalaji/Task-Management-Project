@@ -42,7 +42,7 @@ const Register = () => {
         <AuthSidePanel />
 
         <form onSubmit={handleSubmit} className="flex-1 p-8 md:p-10">
-          <h1 className="text-2xl font-display font-semibold mb-1">Create account</h1>
+          <h1 className="text-2xl font-display font-semibold mb-2">Create account</h1>
           <p className="text-text-muted text-sm mb-6">Sign up to get started</p>
 
           {error && (
