@@ -27,7 +27,7 @@ const TaskTable = ({ tasks, showAssignedTo, onStatusChange }) => {
             </td>
             <td className="p-3">
               {onStatusChange ? (
-                /* Interactive drop down view profile for Employee dashboard layouts */
+                
                 <select
                   value={task.status}
                   onChange={(e) => onStatusChange(task._id, e.target.value)}
@@ -38,7 +38,7 @@ const TaskTable = ({ tasks, showAssignedTo, onStatusChange }) => {
                   <option value="Completed">Completed</option>
                 </select>
               ) : (
-                /* Static flat text fallback view profile for Admin dashboard layouts */
+               
                 <span className="inline-block px-2 py-1 rounded text-xs font-medium bg-white/5 border border-border">
                   {task.status}
                 </span>

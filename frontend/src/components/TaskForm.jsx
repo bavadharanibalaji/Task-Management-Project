@@ -6,19 +6,17 @@ const TaskForm = ({ employees, onSubmit }) => {
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("Medium");
   const [assignedTo, setAssignedTo] = useState("");
-  const [dueDate, setDueDate] = useState(""); // 1. Local state hook declared perfectly
-
+  const [dueDate, setDueDate] = useState(""); 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 2. Added dueDate payload key here so it passes over your database API call functions!
+   
     onSubmit({ title, description, priority, assignedTo, dueDate });
-    
-    // 3. Clear out the fields on completion
+   
     setTitle("");
     setDescription("");
     setPriority("Medium");
     setAssignedTo("");
-    setDueDate(""); // Added clear execution line here
+    setDueDate(""); 
   };
 
   return (
@@ -45,7 +43,6 @@ const TaskForm = ({ employees, onSubmit }) => {
         className="w-full border border-border rounded-md px-3 py-2 mb-3 bg-bg text-text outline-none focus:ring-1 focus:ring-primary h-20 resize-none"
       />
 
-      {/* Responsive Row Sizing Layout: Stacks columns on mobile grids seamlessly */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
         <select
           value={priority}
@@ -71,12 +68,12 @@ const TaskForm = ({ employees, onSubmit }) => {
           ))}
         </select>
 
-        {/* 4. NEW INTERACTIVE DUE DATE CALENDAR INPUT ELEMENT */}
+  
         <input
           type="date"
           value={dueDate}
           onChange={(e) => setDueDate(e.target.value)}
-          required // Toggle off if you want deadlines to be completely optional 
+          required 
           className="border border-border rounded-md px-3 py-2 bg-bg text-sm text-text outline-none cursor-pointer focus:ring-1 focus:ring-primary w-full"
         />
       </div>

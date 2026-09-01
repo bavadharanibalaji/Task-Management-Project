@@ -7,7 +7,6 @@ import TopBar from "../components/TopBar";
 const AdminEmployees = () => {
   const [employees, setEmployees] = useState([]);
   
-  // New states for the add employee form fields
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,31 +17,30 @@ const AdminEmployees = () => {
     api.get("/admin/employees").then((res) => setEmployees(res.data));
   }, []);
 
-  // Form submit handler to register the employee directly from the dashboard
+ 
   const handleAddEmployee = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
 
     try {
-      // Hits your existing registration/creation backend endpoint
-      // Adjust the URL path if your route is different (e.g., "/auth/register" or "/admin/employees")
+      
       const response = await api.post("/auth/register", {
         name,
         email,
         password,
-        role: "employee" // Hardcoded role since you are adding an employee
+        role: "employee" 
       });
 
       if (response.status === 201 || response.status === 200) {
         setSuccess("Employee added successfully!");
         
-        // Clear out the form inputs
+       
         setName("");
         setEmail("");
         setPassword("");
 
-        // Refresh the list immediately on screen so you see them added
+       
         const updatedList = await api.get("/admin/employees");
         setEmployees(updatedList.data);
       }
@@ -58,7 +56,6 @@ const AdminEmployees = () => {
       <div className="flex-1 p-6 pt-16 md:pt-6 w-full min-w-0">
         <TopBar title="Employees" subtitle={`${employees.length} team members`} />
 
-        {/* --- NEW ADD EMPLOYEE FORM COMPONENT --- */}
         <div className="bg-surface border border-border rounded-lg p-5 mb-8 max-w-2xl shadow-sm">
           <div className="flex items-center gap-2 mb-4 text-primary">
             <UserPlus size={18} />
@@ -110,7 +107,6 @@ const AdminEmployees = () => {
           </form>
         </div>
 
-        {/* --- EMPLOYEE GRID LIST DISPLAY --- */}
         <h2 className="font-display font-semibold text-base mb-4 text-text">Team Roster</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {employees.map((emp) => (
