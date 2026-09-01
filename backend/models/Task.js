@@ -22,6 +22,11 @@ const taskSchema = new mongoose.Schema(
       enum: ["Not Started", "Pending", "Completed"],
       default: "Not Started",
     },
+
+    dueDate:{
+      type: String
+    },
+    
     assignedTo: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -32,6 +37,8 @@ const taskSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+
+    
   },
   { timestamps: true }
 )

@@ -6,7 +6,7 @@ const TaskTable = ({ tasks, showAssignedTo, onStatusChange }) => {
   };
 
   return (
-    <table className="w-full bg-surface border border-border rounded-lg overflow-hidden text-sm ms:text-xl">
+    <table className="w-full bg-surface border border-border rounded-lg overflow-hidden text-sm sm:text-base">
       <thead className="bg-bg border-b border-border">
         <tr>
           <th className="text-left p-3">Title</th>
@@ -17,30 +17,38 @@ const TaskTable = ({ tasks, showAssignedTo, onStatusChange }) => {
       </thead>
       <tbody>
         {tasks.map((task) => (
-          <tr key={task._id} className="border-b border-border last:border-0">
+          <tr key={task._id} className="border-b border-border last:border-0 hover:bg-bg/20 transition-colors">
             <td className="p-3">
               <p className="font-medium">{task.title}</p>
-              <p className="text-text-muted text-sm">{task.description}</p>
+              <p className="text-text-muted text-xs sm:text-sm">{task.description}</p>
             </td>
-            <td className={`p-3 font-medium ${priorityColor[task.priority]}`}>
+            <td className={`p-3 font-medium ${priorityColor[task.priority] || "text-text"}`}>
               {task.priority}    
             </td>
             <td className="p-3">
               {onStatusChange ? (
+                /* Interactive drop down view profile for Employee dashboard layouts */
                 <select
                   value={task.status}
                   onChange={(e) => onStatusChange(task._id, e.target.value)}
-                  className="border border-border rounded-md px-2 py-1 bg-bg"
+                  className="border border-border rounded-md px-2 py-1 bg-bg text-sm outline-none cursor-pointer focus:ring-2 focus:ring-primary"
                 >
                   <option value="Not Started">Not Started</option>
-                  <option value="Pending">Pending</option>
+                   <option value="Pending">Pending</option>
                   <option value="Completed">Completed</option>
                 </select>
               ) : (
-                task.status
+                /* Static flat text fallback view profile for Admin dashboard layouts */
+                <span className="inline-block px-2 py-1 rounded text-xs font-medium bg-white/5 border border-border">
+                  {task.status}
+                </span>
               )}
             </td>
-            {showAssignedTo && <td className="p-3">{task.assignedTo?.name}</td>}
+            {showAssignedTo && (
+              <td className="p-3 font-medium text-text">
+                {task.assignedTo?.name || "Unassigned"}
+              </td>
+            )}
           </tr>
         ))}
       </tbody>

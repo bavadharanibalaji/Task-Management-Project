@@ -41,10 +41,12 @@ const AdminDashboard = () => {
     <div className="flex min-h-screen bg-bg">
       <Sidebar role="admin" />
 
-      <div className="flex-1 p-6 pt-16 md:pt-6">
+      {/* Main Panel Content - Patched layout sizing blocks */}
+      <div className="flex-1 p-6 pt-16 md:pt-6 w-full min-w-0">
         <TopBar title="Dashboard" subtitle="Overview of all tasks" />
 
-        <div className="flex gap-4 mb-6">
+        {/* Responsive Grid System: Stacks on mobile viewports, wraps smoothly */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
           <StatCard label="Not Started" count={stats["Not Started"] || 0} icon={ListTodo} color="var(--card1)" />
           <StatCard label="Pending" count={stats["Pending"] || 0} icon={Clock} color="var(--card2)" />
           <StatCard label="Completed" count={stats["Completed"] || 0} icon={CheckCircle2} color="var(--card3)" />
@@ -56,7 +58,8 @@ const AdminDashboard = () => {
           <SearchBar value={search} onChange={setSearch} />
         </div>
 
-        <div className="bg-surface border border-border rounded-lg p-4">
+        {/* Added dynamic horizontal wrap constraints for the table components */}
+        <div className="bg-surface border border-border rounded-lg p-4 overflow-x-auto">
           <TaskTable tasks={tasks} showAssignedTo />
           <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
         </div>

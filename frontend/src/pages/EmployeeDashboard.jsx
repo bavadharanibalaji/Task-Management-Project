@@ -30,14 +30,16 @@ const EmployeeDashboard = () => {
     <div className="flex min-h-screen bg-bg">
       <Sidebar role="employee" />
 
-      <div className="flex-1 p-6 pt-16 md:pt-6">
+      {/* Main Panel Content - Patched layout sizing blocks */}
+      <div className="flex-1 p-6 pt-16 md:pt-6 w-full min-w-0">
         <TopBar title="My Tasks" subtitle="Tasks assigned to you" />
 
         <div className="mb-4">
           <SearchBar value={search} onChange={setSearch} />
         </div>
 
-        <div className="bg-surface border border-border rounded-lg p-4">
+        {/* Added dynamic horizontal wrap constraints for the table components */}
+        <div className="bg-surface border border-border rounded-lg p-4 overflow-x-auto">
           <TaskTable tasks={tasks} onStatusChange={handleStatusChange} />
           <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
         </div>
