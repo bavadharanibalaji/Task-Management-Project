@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&family=Dancing+Script:wght@500;600&display=swap');
+@config "../tailwind.config.js";
+
+:root {
+  --bg: #F4F5F7;
+  --surface: #FFFFFF;
+  --text: #1C2430;
+  --text-muted: #6B7280;
+  --border: #E4E7EC;
+
+  --primary: #4F46E5;
+  --success: #16A34A;
+  --warning: #D97706;
+  --danger: #DC2626;
+
+  --sidebar: #12172B;
+
+  --card1: #FF6B6B;
+  --card2: #6366F1;
+  --card3: #10B981;
+}
+
+body.dark {
+  --bg: #0F1420;
+  --surface: #1A2033;
+  --text: #E9EAF0;
+  --text-muted: #98A2B3;
+  --border: #2A3149;
+
+  --primary: #818CF8;
+  --success: #34D399;
+  --warning: #FBBF24;
+  --danger: #F87171;
+
+  --sidebar: #0A0E1A;
+
+  --card1: #FF8787;
+  --card2: #818CF8;
+  --card3: #34D399;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-family: 'Dancing Script', cursive;
+  }
+}
