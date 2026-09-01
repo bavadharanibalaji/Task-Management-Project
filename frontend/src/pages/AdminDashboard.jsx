@@ -41,7 +41,7 @@ const AdminDashboard = () => {
     <div className="flex min-h-screen bg-bg">
       <Sidebar role="admin" />
 
-      <div className="flex-1 p-6">
+      <div className="flex-1 p-6 pt-16 md:pt-6">
         <TopBar title="Dashboard" subtitle="Overview of all tasks" />
 
         <div className="flex gap-4 mb-6">

@@ -30,7 +30,7 @@ const EmployeeDashboard = () => {
     <div className="flex min-h-screen bg-bg">
       <Sidebar role="employee" />
 
-      <div className="flex-1 p-6">
+      <div className="flex-1 p-6 pt-16 md:pt-6">
         <TopBar title="My Tasks" subtitle="Tasks assigned to you" />
 
         <div className="mb-4">

@@ -15,7 +15,7 @@ const AdminEmployees = () => {
     <div className="flex min-h-screen bg-bg">
       <Sidebar role="admin" />
 
-      <div className="flex-1 p-6">
+      <div className="flex-1 p-6 pt-16 md:pt-6">
         <TopBar title="Employees" subtitle={`${employees.length} team members`} />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
